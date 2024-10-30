@@ -1,15 +1,18 @@
 import { useContext } from "react";
-import TodoContext from "../contexts/todoContext";
-import Login from "./Login";
+import TodoContext from "../state-management/Todos/todoContext";
+import Login from "../state-management/Auth/Login";
+
 
 const MyNavbar = () => {
-  const todoContext = useContext(TodoContext);
+  const { todos } = useContext(TodoContext);
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+          <a className="navbar-brand" href="#">
+            Navbar
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -21,16 +24,33 @@ const MyNavbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <a className="nav-link active" aria-current="page" href="#">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Features
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Pricing
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link disabled" aria-disabled="true">
+                  <span>{todos.length}</span>
+                </a>
               </li>
             </ul>
-            <span style={{ color: "black" }}>{todoContext.todos.length}</span>
-            <div>
-              <Login />
-            </div>
+          </div>
+          <div className="row">
+            <div className="col"></div>
+            <Login />
           </div>
         </div>
       </nav>

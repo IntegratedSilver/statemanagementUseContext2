@@ -1,36 +1,22 @@
-import { useReducer } from "react"
-import HomePage from "./components/HomePage"
-import MyNavbar from "./components/MyNavbar"
-import TodoContext from "./contexts/todoContext"
-import UserContext from "./contexts/userContext"
-import todoReducer from "./reducers/TodoReducer"
-import authReducer from "./reducers/authReducer"
-
-
-
-
-
+import HomePage from "./components/HomePage";
+import MyNavbar from "./components/MyNavbar";
+import AuthProvider from "./state-management/Auth/AuthProvider";
+import TodoProvider from "./state-management/Todos/TodoProvider";
 
 const App = () => {
-
-  const [todos,dispatch] = useReducer(todoReducer,[])
-
-  const [user, loginDispatch] = useReducer(authReducer, '');
-
-
   return (
-  <>
+    <>
+      {/* <Counter/> */}
+      {/* <Todo/> */}
+      {/* <Login/> */}
+      <AuthProvider>
+        <TodoProvider>
+          <MyNavbar />
+          <HomePage />
+        </TodoProvider>
+      </AuthProvider>
+    </>
+  );
+};
 
-
-  
-<TodoContext.Provider value = {{todos, dispatch}}>
-<UserContext.Provider value={{user, Dispatch: loginDispatch}}>
-  <MyNavbar/>
-  <HomePage/>
-  </UserContext.Provider>
-</TodoContext.Provider>
-  </>
-  )
-}
-
-export default App
+export default App;

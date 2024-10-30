@@ -9,7 +9,7 @@ interface Todo {
 const Todo = () => {
     // const [todos, setTodos] = useState<Todo[]>([]);
     // const [todos,dispatch] = useReducer(todoReducer,[])
-    const {dispatch, todos} = useContext(TodoContext)
+    const {Dispatch, todos} = useContext(TodoContext)
 
 
 
@@ -19,12 +19,12 @@ const Todo = () => {
 
     // Add new todo
   const addTodo = () => {
-   dispatch({type:'ADD', todo: {id:generateRandomNumber(), title:'todo' + generateRandomNumber(),}})
+   Dispatch({type:'ADD', todo: {id:generateRandomNumber(), title:'todo' + generateRandomNumber(),}})
   };
 
   // Delete a todo
   const deleteTodo = (id: number) => {
-   dispatch({type:"DELETE",todoId: id})
+   Dispatch({type:"DELETE",todoId: id})
   };
 
   return (

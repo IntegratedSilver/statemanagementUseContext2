@@ -1,17 +1,21 @@
-import { useContext} from 'react';
-import LoginContext from '../contexts/userContext';
+import useAuth from "./useAuth";
+
+
+
+
 
 const Login  = () => {
   
-const {user,Dispatch} = useContext(LoginContext);
+//   const [username, setUsername] = useState<string>('Jose!');
+  const {user,dispatch} = useAuth();
 
   // Handle login
   const handleLogin = () => {
-    Dispatch({type:'LOGIN', username:'Jose!'})
+   dispatch({type:'LOGIN', username:'Jose!'})
   }
   // Handle logout
   const handleLogout = () => {
-    Dispatch({type:"LOGOUT"})
+    dispatch({type:"LOGOUT"})
 };
   
 
