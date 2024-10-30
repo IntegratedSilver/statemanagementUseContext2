@@ -1,6 +1,8 @@
 import { Dispatch } from "react";
-import React from "react";
 import { Todo, TodoAction } from "./TodoProvider";
+import React from "react";
+
+
 
 interface TodoContextType {
     todos: Todo[];
@@ -9,4 +11,5 @@ interface TodoContextType {
 
 const TodoContext = React.createContext<TodoContextType>({} as TodoContextType)
 
-export default TodoContext;
+
+export default TodoContext
